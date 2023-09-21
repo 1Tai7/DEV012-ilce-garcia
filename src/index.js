@@ -4,6 +4,8 @@ const {
   getCharacterCount,
   getCharacterCountExcludingSpaces,
   getNumberCount,
+  getNumberSum,
+  getAverageWordLength,
 } = analyzer;
 //TODO: escuchar eventos del DOM e invocar  los métodos del objeto `analyzer`
 //declare una variable llamada textArea que es igual a un elemento de html de tipo textarea que contiene un nombre ..
@@ -21,7 +23,7 @@ const characterCount = liCharacterCount.textContent;
 
 const liCharacterCountExcludingSpaces = document.querySelector(
   '[data-testid="character-count-excluding-spaces"]'
-); 
+);
 const characterCountExcludingSpaces =
   liCharacterCountExcludingSpaces.textContent;
 
@@ -29,19 +31,26 @@ const liNumberCount = document.querySelector('[data-testid="number-count"]');
 const numberCount = liNumberCount.textContent;
 
 const liNumberSum = document.querySelector('[data-testid="number-sum"]');
+const numberSum = liNumberSum.textContent;
+
 const liWordLengthAverage = document.querySelector(
   '[data-testid="word-length-average"]'
 );
+const wordLengthAverage = liWordLengthAverage.textContent;
 
 //tome la variable textArea y la estoy escuchando cada vez que escribo, borro o hago un espacio
 textArea.addEventListener("input", function () {
-
   liWordCount.textContent = wordCount + "" + getWordCount(textArea.value);
-  liCharacterCount.textContent = characterCount + "" + getCharacterCount(textArea.value);
+  liCharacterCount.textContent =
+    characterCount + "" + getCharacterCount(textArea.value);
   liCharacterCountExcludingSpaces.textContent =
-    characterCountExcludingSpaces + "" + getCharacterCountExcludingSpaces(textArea.value);
+    characterCountExcludingSpaces +
+    "" +
+    getCharacterCountExcludingSpaces(textArea.value);
   liNumberCount.textContent = numberCount + "" + getNumberCount(textArea.value);
-
+  liNumberSum.textContent = numberSum + "" + getNumberSum(textArea.value);
+  liWordLengthAverage.textContent =
+    wordLengthAverage + "" + getAverageWordLength(textArea.value);
 });
 
 //tome la variable button y la estoy escuchando cada vez que haga click y despues de la coma se va a ejecutar la funcion

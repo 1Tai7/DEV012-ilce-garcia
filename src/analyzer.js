@@ -9,12 +9,21 @@ const analyzer = {
     text = text.replace(othersWhite, " ");
     text = text.replace(firstWhite, "");
     text = text.replace(lastWhite, "");
-    return text.split(" ").length;
+    if (text) {
+      return text.split(" ").length;
+    } else {
+      return "";
+    }
 
     //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
   },
   getCharacterCount: (text) => {
-    return text.length;
+    if (text) {
+      return text.length;
+    } else {
+      return "";
+    }
+
     //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
   },
   getCharacterCountExcludingSpaces: (text) => {
@@ -23,15 +32,40 @@ const analyzer = {
 
     text = text.replace(sign, "");
     text = text.replace(white, "");
-    return text.length;
+    if (text) {
+      return text.length;
+    } else {
+      return "";
+    }
     //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
   },
-  getNumberCount: (value) => {
-    
-    return value.length;
+  getNumberCount: (text) => {
+    const white = /\s/g;
+    const sign = /[^a-zA-Z0-9 ]/g;
+    const abc = /[a-zA-Z]/g;
+
+    text = text.replace(white, "");
+    text = text.replace(sign, "");
+    text = text.replace(abc, "");
+
+    if (text) {
+      return text.length;
+    } else {
+      return "";
+    }
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
   },
   getNumberSum: (text) => {
+    const number = text.match(/\d+/g);
+    let sumatoria = 0;
+    if (number) {
+      for (const value of number) {
+        sumatoria += parseInt(value);
+      }
+      return sumatoria.toString();
+    } else {
+      return "";
+    }
     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
   },
   getAverageWordLength: (text) => {
