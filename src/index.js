@@ -41,7 +41,7 @@ const liWordLengthAverage = document.querySelector(
 const wordLengthAverage = liWordLengthAverage.textContent;
 
 //tome la variable textArea y la estoy escuchando cada vez que escribo, borro o hago un espacio
-textArea.addEventListener("input", function tgb() {
+textArea.addEventListener("input", function () {
   //obtuve el valor de testarea y lo establesco en li
   liWordCount.textContent =
     wordCount + "\u2002\u2002\u2002" + getWordCount(textArea.value);
