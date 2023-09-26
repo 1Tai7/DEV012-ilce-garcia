@@ -42,6 +42,7 @@ const analyzer = {
     //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
   },
   getNumberCount: (text) => {
+    //debe contar numeros con decimas
     const white = /\s/g;
     const sign = /[^a-zA-Z0-9 ]/g;
     const abc = /[a-zA-Z]/g;
@@ -50,11 +51,8 @@ const analyzer = {
     text = text.replace(sign, "");
     text = text.replace(abc, "");
 
-    if (text) {
-      return text.length;
-    } else {
-      return "";
-    }
+    return text.length;
+
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
   },
   getNumberSum: (text) => {
@@ -64,7 +62,7 @@ const analyzer = {
       for (const value of number) {
         sumatoria += parseInt(value);
       }
-      return sumatoria.toString();
+      return sumatoria;
     } else {
       return "";
     }
@@ -83,35 +81,31 @@ const analyzer = {
     text = text.replace(lastWhite, "");
     text = text.replace(sign, "");
 
-    const word = text.split(/\s+/);
+    const words = text.split(" ").filter((el) => el !== "");
     let sumatoria = 0;
     let longitud = 0;
-    if (word) {
-      for (const values of word) {
-        word[word.indexOf(values)] = values.length;
-      }
-      for (const values of word) {
-        word.filter(function (el) {
-          if (el !== "" && el !== 0) {
-            sumatoria += values;
-           
-          }
-        });
-        console.log(
-          "sin espacios",
-          word.filter((el) => el !== "")
-        );
-        console.log(
-          "cero",
-          word.filter((el) => el !== 0)
-        );
-        console.log("longitud", word.length);
-        console.log("sumatoria", sumatoria);
-        sumatoria /= longitud;
-        return longitud;
+    let averageWords;
+    console.log("w", words);
+    if (words) {
+      for (const values of words) {
+        console.log("all", values);
+        console.log("allw", values.length);
+
+        if (values !== "") {
+          sumatoria += values.length;
+          longitud = words.length;
+        }
       }
     }
-
+    if (longitud > 0) {
+      averageWords = sumatoria / longitud;
+    } else {
+      averageWords = 0;
+    }
+    console.log("long", longitud);
+    console.log("sum", sumatoria);
+    console.log("calculo", averageWords);
+    return averageWords;
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
   },
 };
