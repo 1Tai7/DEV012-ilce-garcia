@@ -8,7 +8,6 @@ const {
   getAverageWordLength,
 } = analyzer;
 //TODO: escuchar eventos del DOM e invocar  los métodos del objeto `analyzer`
-
 //declare una variable llamada textArea que es igual a un elemento de html de tipo textarea que contiene un nombre ..
 const textArea = document.querySelector("textarea[name='user-input']");
 //declare una variable llamada button que es igual a un elemento html que contiene un id ..
@@ -16,59 +15,52 @@ const button = document.getElementById("reset-button");
 
 //declare una variable llamada liword.. que es un elemento html con un atributo data-testid que tiene un valor word-count
 const liWordCount = document.querySelector('[data-testid="word-count"]');
-const wordCount = liWordCount.textContent;
+const wordCount = "Recuento de palabras";
 
 const liCharacterCount = document.querySelector(
   '[data-testid="character-count"]'
 );
-const characterCount = liCharacterCount.textContent;
+const characterCount = "Recuento de caracteres";
 
-const liCharacterCountExcludingSpaces = document.querySelector(
-  '[data-testid="character-count-excluding-spaces"]'
+const liCharacterNoSpacesCount = document.querySelector(
+  '[data-testid="character-no-spaces-count"]'
 );
-const characterCountExcludingSpaces =
-  liCharacterCountExcludingSpaces.textContent;
+const characterNoSpacesCount = "Caracteres sin espacios y signos";
 
 const liNumberCount = document.querySelector('[data-testid="number-count"]');
-const numberCount = liNumberCount.textContent;
+const numberCount = "Recuento de números";
 
 const liNumberSum = document.querySelector('[data-testid="number-sum"]');
-const numberSum = liNumberSum.textContent;
+const numberSum = "Suma total de números";
 
 const liWordLengthAverage = document.querySelector(
   '[data-testid="word-length-average"]'
 );
-const wordLengthAverage = liWordLengthAverage.textContent;
-
+const wordLengthAverage = "Longitud media de palabras";
 //tome la variable textArea y la estoy escuchando cada vez que escribo, borro o hago un espacio
 textArea.addEventListener("input", function () {
   //obtuve el valor de testarea y lo establesco en li
-  liWordCount.textContent =
-    wordCount + "\u2002\u2002\u2002" + getWordCount(textArea.value);
-  liCharacterCount.textContent =
-    characterCount + "\u2002\u2002\u2002" + getCharacterCount(textArea.value);
-  liCharacterCountExcludingSpaces.textContent =
-    characterCountExcludingSpaces +
-    "\u2002\u2002\u2002" +
-    getCharacterCountExcludingSpaces(textArea.value);
-  liNumberCount.textContent =
-    numberCount + "\u2002\u2002\u2002" + getNumberCount(textArea.value);
-  liNumberSum.textContent =
-    numberSum + "\u2002\u2002\u2002" + getNumberSum(textArea.value);
-  liWordLengthAverage.textContent =
-    wordLengthAverage +
-    "\u2002\u2002\u2002" +
-    getAverageWordLength(textArea.value);
+  liWordCount.textContent = `${wordCount} ${getWordCount(textArea.value)}`;
+  liCharacterCount.textContent = `${characterCount} ${getCharacterCount(
+    textArea.value
+  )}`;
+  liCharacterNoSpacesCount.textContent = `${characterNoSpacesCount} 
+    ${getCharacterCountExcludingSpaces(textArea.value)}`;
+  liNumberCount.textContent = `${numberCount} ${getNumberCount(
+    textArea.value
+  )}`;
+  liNumberSum.textContent = `${numberSum} ${getNumberSum(textArea.value)}`;
+  liWordLengthAverage.textContent = `${wordLengthAverage} 
+    ${getAverageWordLength(textArea.value)}`;
 });
-
 //tome la variable button y la estoy escuchando cada vez que haga click y despues de la coma se va a ejecutar la funcion
 //que dentro de la funcion , tome la funcion textarea y su valor lo iguale a " "
 button.addEventListener("click", function () {
   textArea.value = "";
-  liWordCount.textContent = wordCount;
-  liCharacterCount.textContent = characterCount;
-  liCharacterCountExcludingSpaces.textContent = characterCountExcludingSpaces;
-  liNumberCount.textContent = numberCount;
-  liNumberSum.textContent = numberSum;
-  liWordLengthAverage.textContent = wordLengthAverage;
+  liWordCount.textContent = wordCount + " 0";
+  liCharacterCount.textContent = characterCount + " 0";
+  liCharacterNoSpacesCount.textContent = characterNoSpacesCount + " 0";
+  liNumberCount.textContent = numberCount + " 0";
+  liNumberSum.textContent = numberSum + " 0";
+  liWordLengthAverage.textContent = wordLengthAverage + " 0";
 });

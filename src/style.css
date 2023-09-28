@@ -13,7 +13,7 @@ body {
   letter-spacing: 1px;
 }
 header {
-    display: flex;
+  display: flex;
 }
 section {
   display: flex;
@@ -29,9 +29,9 @@ ul {
   columns: 2;
 }
 .li {
-   margin-bottom: 1rem;
+  margin-bottom: 1rem;
   background-color: yellowgreen;
-  width: 15rem;
+  width: 16rem;
   height: auto;
   padding: 1rem 4rem 1rem 1rem;
   border-radius: 10px;

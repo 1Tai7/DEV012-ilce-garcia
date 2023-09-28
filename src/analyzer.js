@@ -14,7 +14,6 @@ const analyzer = {
     } else {
       return 0;
     }
-
     //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
   },
   getCharacterCount: (text) => {
@@ -23,7 +22,6 @@ const analyzer = {
     } else {
       return 0;
     }
-
     //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
   },
   getCharacterCountExcludingSpaces: (text) => {
@@ -48,7 +46,6 @@ const analyzer = {
     } else {
       return 0;
     }
-
     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
   },
   getNumberSum: (text) => {
@@ -58,28 +55,16 @@ const analyzer = {
 
     if (textArray) {
       const clearTextArray = textArray.filter((el) => el !== "");
-      for (const element of clearTextArray) {
+      for (let i = 0; i < clearTextArray.length; i++) {
+        const element = clearTextArray[i];
         if (!isNaN(Number(element))) sumatory += Number(element);
       }
       return Number(sumatory.toFixed(2));
-    } else {
-      return 0;
     }
+    return 0;
     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
   },
   getAverageWordLength: (text) => {
-    /* const firstWhite = /^ /;
-    const lastWhite = / $/;
-    const othersWhite = /[ ]+/g;
-    const numbers = /\d+/g;
-    const sign = /[^a-zA-Z0-9 ]/g;
-
-    text = text.replace(numbers, "");
-    text = text.replace(othersWhite, " ");
-    text = text.replace(firstWhite, "");
-    text = text.replace(lastWhite, "");
-    text = text.replace(sign, "");
-*/
     const words = text.split(" ").filter((el) => el !== "");
     let sumatoria = 0;
     let longitud = 0;
@@ -98,7 +83,6 @@ const analyzer = {
     } else {
       averageWords = 0;
     }
-
     return Number(averageWords.toFixed(2));
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
   },
