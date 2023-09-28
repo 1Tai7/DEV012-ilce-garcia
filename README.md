@@ -24,4 +24,5 @@ El analizador de texto toma todos los caracteres ingresado en un  `<textarea>` y
 
 ## Autor
 
- [<img src="https://avatars.githubusercontent.com/u/37356058?v=4" width=115><br><sub>Camila Fernanda Alves</sub>](https://github.com/camilafernanda) 
+[<img src="https://github.com/1Tai7/DEV012-ilce-garcia/assets/91899554/8eb7b6aa-658f-4b53-a58c-ab8ad4738cb0" width=115><br><sub>Ilce Garcia</sub>](https://github.com/1Tai7)
+| :---: |
