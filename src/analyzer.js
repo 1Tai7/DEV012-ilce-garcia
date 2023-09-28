@@ -3,11 +3,9 @@ const analyzer = {
     const firstWhite = /^ /;
     const lastWhite = / $/;
     const othersWhite = /[ ]+/g;
-    const numbers = /\d+/g;
     const sign = /[^a-zA-Z0-9 ]/g;
 
     text = text.replace(sign, "");
-    text = text.replace(numbers, "");
     text = text.replace(othersWhite, " ");
     text = text.replace(firstWhite, "");
     text = text.replace(lastWhite, "");
