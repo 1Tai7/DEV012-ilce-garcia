@@ -39,7 +39,8 @@ const liWordLengthAverage = document.querySelector(
 const wordLengthAverage = "Longitud media de palabras";
 //tome la variable textArea y la estoy escuchando cada vez que escribo, borro o hago un espacio
 textArea.addEventListener("input", function () {
-  //obtuve el valor de testarea y lo establesco en li
+  //obtengo el valor de testarea y lo establesco en el elemento li y lo muestro en un valor numerico
+  //`${} el resultado adentro se combierte en una cadena de texto
   liWordCount.textContent = `${wordCount} ${getWordCount(textArea.value)}`;
   liCharacterCount.textContent = `${characterCount} ${getCharacterCount(
     textArea.value
@@ -57,6 +58,7 @@ textArea.addEventListener("input", function () {
 //que dentro de la funcion , tome la funcion textarea y su valor lo iguale a " "
 button.addEventListener("click", function () {
   textArea.value = "";
+  //contenido de texto del elemento li y lo modificamos dentro del elemento, wordcount es la variables y se suma a una cadena de texto
   liWordCount.textContent = wordCount + " 0";
   liCharacterCount.textContent = characterCount + " 0";
   liCharacterNoSpacesCount.textContent = characterNoSpacesCount + " 0";
